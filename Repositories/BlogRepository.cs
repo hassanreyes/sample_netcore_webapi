@@ -18,5 +18,15 @@ namespace MyWebAPI.Repositories
         {
             return _context.Blogs;
         }
+
+        public IQueryable<Blog> GetByText(string text)
+        {
+            var blogs = 
+                from b in _context.Blogs
+                where b.Url.ToLower().Contains(text.ToLower())
+                select b;
+
+            return blogs;
+        }
     }
 }

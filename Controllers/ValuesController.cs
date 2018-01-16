@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using MyWebAPI.Repositories;
 
 namespace MyWebAPI.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
+        IBlogRepository _blogRepository = null;
+        ILoggerFactory _loggerFactory = null;
+
+        public ValuesController(IBlogRepository blogRepository, ILoggerFactory loggerFactory)
+        {
+            _blogRepository = blogRepository;
+            _loggerFactory = loggerFactory;
+        }
+
         // GET api/values
         [HttpGet]
         public IEnumerable<string> Get()
@@ -25,7 +36,7 @@ namespace MyWebAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody]string value)
+        public void Post([FromBody]string value, [FromBody]string url, [FromBody]int n)
         {
         }
 
