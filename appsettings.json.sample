@@ -1,0 +1,22 @@
+{
+  "Logging": {
+    "IncludeScopes": false,
+    "Debug": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    },
+    "Console": {
+      "LogLevel": {
+        "Default": "Warning"
+      }
+    }
+  },
+  "AWS_RDS": {
+    "DB_NAME": "",
+    "HOSTNAME": "",
+    "PORT": "",
+    "USERNAME": "",
+    "PASSWORD" : ""
+  }
+}
